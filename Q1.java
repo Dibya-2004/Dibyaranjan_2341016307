@@ -1,30 +1,27 @@
+package polimorphism;
+class Animal{
+	void makeSound() {
+		System.out.println("Sound of animal");
+	}
+}
+class Dog extends Animal{
+	void makeSound() {
+		System.out.println("Sound of Dog bho bho");
+	}
+}
+class Cat extends Animal{
+	void makeSound() {
+		System.out.println("Sound of Cat meo meo");
+	}
+}
 public class Q1 {
-    public static void main(String[] args) {
-        int[] array = { 1, 2, 3, 4, 2, 3, 5, 6, 4 };
-        printDuplicates(array);
-    }
-
-    public static void printDuplicates(int[] array) {
-        System.out.print("elements: ");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-        System.out.print("Duplicate elements: ");
-        boolean hasDuplicates = false;
-
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[i] == array[j]) {
-                    System.out.print(array[i] + " ");
-                    hasDuplicates = true;
-                    break;
-                }
-            }
-        }
-
-        if (!hasDuplicates) {
-            System.out.print("No duplicates found.");
-        }
-    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Animal a = new Animal();
+		Dog d=new Dog();
+		Cat c=new Cat();
+		a.makeSound();
+		d.makeSound();
+		c.makeSound();
+	}
 }

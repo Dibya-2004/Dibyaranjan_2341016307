@@ -1,41 +1,32 @@
+package polimorphism;
+class TimeConverter {
 
-    import java.util.Arrays;
-
-    public class Q3 {
-    public static void main(String[] args) {
-        int[] arr = {3, 8, 15, 2, 17, 11};
-        findMinMaxDifference(arr);
+    public double convert(double seconds) {
+        return seconds / 60;
     }
-
-    public static void findMinMaxDifference(int[] arr) {
-        if (arr.length < 2) {
-            System.out.println("Array should have at least two elements.");
-            return;
-        }
-        
-        // Sort the array
-        Arrays.sort(arr);
-        
-        // Minimum difference
-        int minDiff = Integer.MAX_VALUE;
-        int minPair1 = 0, minPair2 = 0;
-        for (int i = 1; i < arr.length; i++) {
-            int diff = arr[i] - arr[i - 1];
-            if (diff < minDiff) {
-                minDiff = diff;
-                minPair1 = arr[i - 1];
-                minPair2 = arr[i];
-            }
-        }
-        
-        // Maximum difference
-        int maxDiff = arr[arr.length - 1] - arr[0];
-        int maxPair1 = arr[0];
-        int maxPair2 = arr[arr.length - 1];
-        
-        // Output the results
-        System.out.println("Minimum difference pair: (" + minPair1 + ", " + minPair2 + "), Difference = " + minDiff);
-        System.out.println("Maximum difference pair: (" + maxPair1 + ", " + maxPair2 + "), Difference = " + maxDiff);
+    public double convert(int minutes) {
+        return minutes / 60.0; 
+    }
+    public float convert(long hours) {
+        return hours / 24.0f; 
     }
 }
+public class Q3 {
 
+	public static void main(String[] args) {
+        TimeConverter converter = new TimeConverter();
+
+        
+        double seconds = 120; 
+        double minutes = converter.convert(seconds);
+        System.out.println(seconds + " seconds is " + minutes + " minutes.");
+
+        int minutesInput = 120; 
+        double hours = converter.convert(minutesInput);
+        System.out.println(minutesInput + " minutes is " + hours + " hours.");
+
+        long hoursInput = 48; 
+        double days = converter.convert(hoursInput);
+        System.out.println(hoursInput + " hours is " + days + " days.");
+    }
+}
